@@ -4,7 +4,7 @@ Amigo AI is a friendly and interactive chatbot built with Streamlit, powered by 
 
 ## Live Link
 
-![Live Demo](https://amigo-ai-io.streamlit.app/)
+Link: https://amigo-ai-io.streamlit.app/
  
     
 
