@@ -27,73 +27,46 @@ if not google_api_key:
 
 @tool
 def calculator_add(a: float, b: float) -> str:
-    """Useful for performing basic arithmetic calculations with numbers.
-    For example: 'What is 5 + 3?' or 'Calculate 10 minus 4'.
-    """
     print(f"Tool 'calculator' called with a={a}, b={b}")
     return f"The sum of {a} and {b} is {a + b}"
 
 @tool
 def calculator_sub(a: float, b: float) -> str:
-    """Useful for performing basic arithmetic calculations with numbers.
-    For example: 'What is 5 + 3?' or 'Calculate 10 minus 4'.
-    """
     print(f"Tool 'calculator' called with a={a}, b={b}")
     return f"The sum of {a} and {b} is {a - b}"
 
 @tool
 def calculator_mul(a: float, b: float) -> str:
-    """Useful for performing basic arithmetic calculations with numbers.
-    For example: 'What is 5 + 3?' or 'Calculate 10 minus 4'.
-    """
     print(f"Tool 'calculator' called with a={a}, b={b}")
     return f"The sum of {a} and {b} is {a * b}"
 
 @tool
 def calculator_div(a: float, b: float) -> str:
-    """Useful for performing basic arithmetic calculations with numbers.
-    For example: 'What is 5 + 3?' or 'Calculate 10 minus 4'.
-    """
     print(f"Tool 'calculator' called with a={a}, b={b}")
     return f"The sum of {a} and {b} is {a / b}"
 
 @tool
 def calculator_mod(a: float, b: float) -> str:
-    """Useful for performing basic arithmetic calculations with numbers.
-    For example: 'What is 5 + 3?' or 'Calculate 10 minus 4'.
-    """
     print(f"Tool 'calculator' called with a={a}, b={b}")
     return f"The sum of {a} and {b} is {a % b}"
 
 @tool
 def say_hello(name: str) -> str:
-    """Useful for greeting a user.
-    For example: 'Say hello to John' or 'Greet Sarah'.
-    """
     print(f"Tool 'say_hello' called with name='{name}'")
     return f"Hello {name}, I hope you are well today"
 
 @tool
 def get_current_datetime() -> str:
-    """Useful for getting the current date and time.
-    For example: 'What is the current time?' or 'Tell me today's date and time'.
-    """
     print("Tool 'get_current_datetime' called.")
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 @tool
 def reverse_string(text: str) -> str:
-    """Useful for reversing a given string.
-    For example: 'Reverse the word "hello"' or 'Can you spell "world" backwards?'.
-    """
     print(f"Tool 'reverse_string' called with text='{text}'")
     return text[::-1]
 
 @tool
 def is_even_or_odd(number: int) -> str:
-    """Useful for checking if a number is even or odd.
-    For example: 'Is 7 an even number?' or 'Check if 10 is odd'.
-    """
     print(f"Tool 'is_even_or_odd' called with number={number}")
     if number % 2 == 0:
         return f"The number {number} is even."
@@ -102,7 +75,6 @@ def is_even_or_odd(number: int) -> str:
 
 @st.cache_resource
 def initialize_agent():
-    """Initializes the ChatGoogleGenerativeAI model and the LangGraph agent."""
     model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0, google_api_key=os.getenv("GOOGLE_API_KEY"))
     tools = [calculator_add,calculator_sub,calculator_mul,calculator_div,calculator_mod, say_hello, get_current_datetime, reverse_string, is_even_or_odd]
     agent_executor = create_react_agent(model, tools)
